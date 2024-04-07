@@ -1,3 +1,8 @@
+"""This module simulates a client application that sends random log messages to a specified server.
+
+The messages are serialized and sent over a TCP connection.
+"""
+
 import socket
 import struct
 import logging
@@ -17,7 +22,9 @@ LOG_FORMAT = "%(asctime)s - %(message)s"
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
 
-class MyNaiveApp:
+class MyNaiveApp:  # pylint: disable=too-few-public-methods
+    """A naive application that sends serialized log messages to a server."""
+
     def __init__(self, host: str, port: int):
         """Initializes the application with the specified host address and port number."""
         self.host = host
@@ -28,6 +35,7 @@ class MyNaiveApp:
     ) -> bytes:
         """Creates a serialized protobuf-encoded, length-prefixed message."""
 
+        # pylint: disable=no-member
         lm = proto.LogMessage()
         lm.log_level = log_level
         lm.logger = logger
@@ -79,7 +87,7 @@ class MyNaiveApp:
         ]
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S,%f")[:-3]
         message, level, code = random.choice(messages_with_codes)
-        formatted_message = f"{current_time} - {message}"
+        formatted_message = f"{current_time} - {message}:({code})"
         return level, formatted_message
 
     def send_multiple_messages(self):
@@ -109,12 +117,13 @@ class MyNaiveApp:
             except KeyboardInterrupt:
                 logging.info("Shutdown signal received, stopping...")
                 break
-            except Exception as e:
+            except Exception as e:  # pylint: disable=broad-except
                 logging.error(f"An unexpected error occurred: {e}")
                 break
 
 
 def main():
+    """Starts the MyNaiveApp instance and begins sending messages."""
     sender = MyNaiveApp(HOST, PORT)
     sender.send_multiple_messages()
 

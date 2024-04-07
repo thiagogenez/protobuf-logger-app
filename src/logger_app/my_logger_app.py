@@ -1,6 +1,7 @@
-"""
-This module defines a Logger server class that listens for incoming connections
-and processes log messages sent by clients. Messages are expected to be protobuf-encoded.
+"""This module defines a Logger server class that listens for incoming connections and processes log
+messages sent by clients.
+
+Messages are expected to be protobuf-encoded.
 """
 
 import socket
@@ -14,10 +15,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
 
 
 class Logger:
-    """
-    A Logger server class that listens on a specified host and port for incoming log messages,
-    decodes them from protobuf, and logs the contents o.
-    """
+    """A Logger server class that listens on a specified host and port for incoming log messages,
+    decodes them from protobuf, and logs the contents o."""
+
     def __init__(self, host="127.0.0.1", port=15000):
         self.host = host
         self.port = port
