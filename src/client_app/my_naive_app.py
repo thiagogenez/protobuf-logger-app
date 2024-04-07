@@ -3,10 +3,11 @@
 The messages are serialized and sent over a TCP connection.
 """
 
+import time
+import uuid
 import socket
 import struct
 import logging
-import time
 import random
 from typing import List
 from datetime import datetime
@@ -29,6 +30,7 @@ class MyNaiveApp:  # pylint: disable=too-few-public-methods
         """Initializes the application with the specified host address and port number."""
         self.host = host
         self.port = port
+        self.client_id = uuid.uuid4().hex[:8]  # Generate a shorter unique identifier
 
     def _create_log_message(
         self, log_level: str, logger: str, mac: List[int], message: str
@@ -87,7 +89,7 @@ class MyNaiveApp:  # pylint: disable=too-few-public-methods
         ]
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S,%f")[:-3]
         message, level, code = random.choice(messages_with_codes)
-        formatted_message = f"{current_time} - {message}:({code})"
+        formatted_message = f"{current_time} - {self.client_id}:{message}:({code})"
         return level, formatted_message
 
     def send_multiple_messages(self):
