@@ -148,6 +148,3 @@ cython_debug/
 
 # VS Code settings
 .vscode/
-
-# Generated files by Protocol Buffers compiler
-schema_pb2.py
