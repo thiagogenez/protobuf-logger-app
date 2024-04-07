@@ -75,6 +75,7 @@ class MyNaiveApp:
             ("Data synchronization started.", "INFO", "113"),
             ("Data synchronization completed.", "INFO", "114"),
             ("Invalid login attempt.", "ERROR", "206"),
+            ("", "INFO", "")
         ]
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         message, level, code = random.choice(messages_with_codes)
