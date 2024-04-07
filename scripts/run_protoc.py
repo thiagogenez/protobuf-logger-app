@@ -56,7 +56,7 @@ def main():
         sys.exit(1)
 
     # hard-coded just for now
-    run_protoc("proto/log_message.proto", "src/receiver_app_logger")
+    run_protoc("proto/log_message.proto", "src/logger_app")
     run_protoc("proto/log_message.proto", "src/client_app")
 
 

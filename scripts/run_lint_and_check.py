@@ -40,7 +40,7 @@ def main():
         run_command(f"poetry run docformatter --in-place --recursive {directory}", "Docformatter")
         run_command(f"poetry run black {directory}", "Black")
         run_command(f"poetry run mypy {directory}", "Mypy")
-        run_command(f"poetry run pylint {directory}", "Pylint")
+        run_command(f"poetry run pylint --load-plugins pylint_protobuf {directory}", "Pylint")
 
 
 if __name__ == "__main__":
