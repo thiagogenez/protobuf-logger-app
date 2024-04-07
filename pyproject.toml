@@ -1,0 +1,59 @@
+# Poetry configurations
+[tool.poetry]
+name = "receiver-app-logger"
+version = "0.1.0"
+description = "Tonies Job Interview"
+authors = ["Thiago Genez <thiagogenez@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+protobuf = "^3.15.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+black = "^22.3.0"
+pylint = "^2.7.4"
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+receiver-app-logger = 'receiver_app_logger.logger:main'
+lint-and-check = "scripts.lint_and_check:main"
+
+# Black configurations
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+# Docformatter configurations
+[tool.docformatter]
+wrap-summaries = 100
+wrap-descriptions = 100
+wrap-arguments = 100
+wrap-returns = 100
+
+# Pylint configurations
+[tool.pylint."MESSAGES CONTROL"]
+disable = ["logging-fstring-interpolation", "redefined-outer-name"]
+
+[tool.pylint.FORMAT]
+max-line-length = 100
