@@ -1,6 +1,6 @@
 # Poetry configurations
 [tool.poetry]
-name = "receiver-app-logger"
+name = "my-tonies-solution"
 version = "0.1.0"
 description = "Tonies Job Interview"
 authors = ["Thiago Genez <thiagogenez@gmail.com>"]
@@ -19,14 +19,21 @@ docformatter = "^1.7.5"
 types-protobuf = "^4.24.0.20240311"
 mypy-protobuf = "^3.6.0"
 
+[[tool.poetry.packages]]
+include = "client_app"
+from = "src"
+
+[[tool.poetry.packages]]
+include = "logger_app"
+from = "src"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-receiver-app-logger = 'receiver_app_logger.logger:main'
-naive-client = "client_app.my_naive_app:main"
+logger-app = 'logger_app.my_logger_app:main'
+naive-client-app = "client_app.my_naive_app:main"
 lint-and-check = "scripts.run_lint_and_check:main"
 compile-proto = "scripts.run_protoc:main"
 pipeline = "scripts.run_pipeline:main"
