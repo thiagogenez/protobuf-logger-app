@@ -8,13 +8,16 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-protobuf = "^3.15.8"
+protobuf = "^4.25.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.4"
-black = "^22.3.0"
-pylint = "^2.7.4"
-mypy = "^0.910"
+pytest = "^8.1.1"
+black = "^24.3.0"
+pylint = "^3.1.0"
+mypy = "^1.9.0"
+docformatter = "^1.7.5"
+types-protobuf = "^4.24.0.20240311"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -23,6 +26,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 receiver-app-logger = 'receiver_app_logger.logger:main'
 lint-and-check = "scripts.lint_and_check:main"
+compile-protos = "scripts.compile_protos:main"
 
 # Black configurations
 [tool.black]
