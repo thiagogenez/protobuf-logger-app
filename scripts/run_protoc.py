@@ -1,11 +1,7 @@
 """Compile Protocol Buffers (.proto) files to Python.
 
-This script checks if the Protocol Buffers compiler (protoc) is
-installed and available in the system's PATH. If protoc is installed,
-it compiles a specific .proto file to Python using protoc.
-
-Usage:
-    python compile_protos.py
+This script checks if the Protocol Buffers compiler (protoc) is installed and available in the
+system's PATH. If protoc is installed, it compiles a specific .proto file to Python using protoc.
 """
 
 import subprocess
@@ -23,7 +19,7 @@ def is_protoc_installed():
         return False
 
 
-def compile_proto(proto_src, python_out):
+def run_protoc(proto_src, python_out):
     """Compile a specific .proto file to Python."""
     proto_file_path = Path(proto_src).resolve()
     python_out_path = Path(python_out).resolve()
@@ -60,8 +56,8 @@ def main():
         sys.exit(1)
 
     # hard-coded just for now
-    compile_proto("proto/log_message.proto", "src/receiver_app_logger")
-    compile_proto("proto/log_message.proto", "src/client_app")
+    run_protoc("proto/log_message.proto", "src/receiver_app_logger")
+    run_protoc("proto/log_message.proto", "src/client_app")
 
 
 if __name__ == "__main__":

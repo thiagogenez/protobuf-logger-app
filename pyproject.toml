@@ -27,8 +27,9 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 receiver-app-logger = 'receiver_app_logger.logger:main'
 naive-client = "client_app.my_naive_app:main"
-lint-and-check = "scripts.lint_and_check:main"
-compile-proto = "scripts.compile_proto:main"
+lint-and-check = "scripts.run_lint_and_check:main"
+compile-proto = "scripts.run_protoc:main"
+pipeline = "scripts.run_pipeline:main"
 
 # Black configurations
 [tool.black]
