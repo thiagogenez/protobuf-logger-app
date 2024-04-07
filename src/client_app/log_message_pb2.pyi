@@ -34,7 +34,17 @@ class LogMessage(google.protobuf.message.Message):
         mac: builtins.bytes | None = ...,
         message: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["log_level", b"log_level", "logger", b"logger", "mac", b"mac", "message", b"message"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["log_level", b"log_level", "logger", b"logger", "mac", b"mac", "message", b"message"]) -> None: ...
+    def HasField(
+        self,
+        field_name: typing.Literal[
+            "log_level", b"log_level", "logger", b"logger", "mac", b"mac", "message", b"message"
+        ],
+    ) -> builtins.bool: ...
+    def ClearField(
+        self,
+        field_name: typing.Literal[
+            "log_level", b"log_level", "logger", b"logger", "mac", b"mac", "message", b"message"
+        ],
+    ) -> None: ...
 
 global___LogMessage = LogMessage

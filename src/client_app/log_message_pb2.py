@@ -7,20 +7,21 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-
-
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11log_message.proto\"M\n\nLogMessage\x12\x11\n\tlog_level\x18\x01 \x02(\t\x12\x0e\n\x06logger\x18\x02 \x02(\t\x12\x0b\n\x03mac\x18\x03 \x02(\x0c\x12\x0f\n\x07message\x18\x04 \x01(\t')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\x11log_message.proto"M\n\nLogMessage\x12\x11\n\tlog_level\x18\x01 \x02(\t\x12\x0e\n\x06logger\x18\x02 \x02(\t\x12\x0b\n\x03mac\x18\x03 \x02(\x0c\x12\x0f\n\x07message\x18\x04 \x01(\t'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'log_message_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "log_message_pb2", _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-  DESCRIPTOR._loaded_options = None
-  _globals['_LOGMESSAGE']._serialized_start=21
-  _globals['_LOGMESSAGE']._serialized_end=98
+    DESCRIPTOR._loaded_options = None
+    _globals["_LOGMESSAGE"]._serialized_start = 21
+    _globals["_LOGMESSAGE"]._serialized_end = 98
 # @@protoc_insertion_point(module_scope)
